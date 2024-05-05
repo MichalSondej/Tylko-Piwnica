@@ -40,6 +40,9 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="btn btn-dark" href="index.php">Piwnica</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Tytonie
@@ -53,15 +56,13 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
                     <li class="nav-item">
                         <a class="btn btn-dark" href="addNewTobacco.php">Dodaj nowy tytoń</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-dark" href="#">Piwnica</a>
-                    </li>
+
                 </ul>
             </div>
         </nav>
     </header>
     <div class="contaier-lg">
-        <form class="container" method="POST">
+        <form class="container" method="POST" action="index.php">
             <div class="mb-3">
                 <label for="nameTobacco" class="form-label">Nazwa tytoniu</label>
                 <input type="text" class="form-control" name="nameTobacco">
@@ -91,16 +92,16 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
             <div class="mb-3">
                 <label for="strongTobacco" class="form-label
                 ">Moc tytoniu</label>
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" value="1" class="btn-check" name="strongTobacco" id="btnradio1" autocomplete="off" checked>
-                        <label class="btn btn-outline-primary" for="btnradio1">Słaby</label>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" value="1" class="btn-check" name="strongTobacco" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="btnradio1">Słaby</label>
 
-                        <input type="radio" value="2" class="btn-check" name="strongTobacco" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">Średni</label>
+                    <input type="radio" value="2" class="btn-check" name="strongTobacco" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio2">Średni</label>
 
-                        <input type="radio" value="3" class="btn-check" name="strongTobacco" id="btnradio3" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio3">Mocny</label>
-                    </div>
+                    <input type="radio" value="3" class="btn-check" name="strongTobacco" id="btnradio3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio3">Mocny</label>
+                </div>
             </div>
             <label for="priceTobacco" class="form-label
                 ">Cena tytoniu</label>
