@@ -5,7 +5,7 @@ body::before {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	opacity: 1; 
+	opacity: 1;
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -14,14 +14,14 @@ body::before {
 	z-index: -1;
 }
 #nameBtn {
-    color: aqua;
+	color: aqua;
 }
-.searchBtn{
-    color: aqua;
-    border-color: aqua;
+.searchBtn {
+	color: aqua;
+	border-color: aqua;
 }
-.searchBtn:hover{
-    color: aqua;
-    background-color: rgb(72, 72, 72);
-    border-color: rgb(57, 57, 57);
-}           
+.searchBtn:hover {
+	color: aqua;
+	background-color: rgb(72, 72, 72);
+	border-color: rgb(57, 57, 57);
+}
