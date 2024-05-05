@@ -22,7 +22,7 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
 <body>
     <?php include 'header.php'; ?>
     <div class="contaier-lg">
-        <form class="container" method="POST" action="index.php">
+        <form class="container" method="POST">
             <div class="mb-3">
                 <label for="nameTobacco" class="form-label">Nazwa tytoniu</label>
                 <input type="text" class="form-control" name="nameTobacco">
@@ -44,22 +44,22 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
                 <label for="typeTobacco" class="form-label
                 ">Rodzaj tytoniu</label>
                 <select name="typeTobacco" class="form-select">
-                    <option value="1">Czerwony</option>
-                    <option value="2">Jasny</option>
-                    <option value="3">Ciemny</option>
+                    <option value="Czerwony">Czerwony</option>
+                    <option value="Jasny">Jasny</option>
+                    <option value="Ciemny">Ciemny</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="strongTobacco" class="form-label
                 ">Moc tytoniu</label>
                 <div class="btn-group rateButtons" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" value="1" class="btn-check" name="strongTobacco" id="btnradio1" autocomplete="off" checked>
+                    <input type="radio" value="Słaby" class="btn-check" name="strongTobacco" id="btnradio1" autocomplete="off" checked>
                     <label class="btn btn-outline-primary" for="btnradio1">Słaby</label>
 
-                    <input type="radio" value="2" class="btn-check" name="strongTobacco" id="btnradio2" autocomplete="off">
+                    <input type="radio" value="Średni" class="btn-check" name="strongTobacco" id="btnradio2" autocomplete="off">
                     <label class="btn btn-outline-primary" for="btnradio2">Średni</label>
 
-                    <input type="radio" value="3" class="btn-check" name="strongTobacco" id="btnradio3" autocomplete="off">
+                    <input type="radio" value="Mocny" class="btn-check" name="strongTobacco" id="btnradio3" autocomplete="off">
                     <label class="btn btn-outline-primary" for="btnradio3">Mocny</label>
                 </div>
             </div>
@@ -93,6 +93,7 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['nameTobacco']) && isset($_POST['typeTobacco']) && isset($_POST['priceTobacco']) && isset($_POST['descriptionTobacco'])) {
         addNewTobacco();
+        echo 'Dodano nowy tytoń';
     } else {
         echo 'Wypełnij wszystkie pola';
     }
