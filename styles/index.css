@@ -3,14 +3,13 @@ body::before {
 	background-image: linear-gradient(to top, rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 1)),
 		url(../images/body/background.png);
 	background-size: cover;
-	background-repeat: no-repeat;
 	background-position: center center;
 	opacity: 1;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	position: absolute;
+	position: fixed;
 	z-index: -1;
 }
 #nameBtn {
@@ -24,4 +23,11 @@ body::before {
 	color: aqua;
 	background-color: rgb(72, 72, 72);
 	border-color: rgb(57, 57, 57);
+}
+.container {
+	display: flex;
+	justify-content: center;
+}
+.cards {
+	margin-top: 1rem;
 }
