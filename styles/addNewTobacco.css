@@ -13,41 +13,24 @@ body::before {
 	position: absolute;
 	z-index: -1;
 }
-
 .container {
 	background-color: rgba(255, 255, 255, 0.8);
 	border-radius: 10px;
 	padding: 20px;
 	box-shadow: 0 0 500px rgba(0, 0, 0, 0.8);
 	opacity: 0.9;
-	margin-top: 16%;
+	margin-top: 5%;
 	max-width: 400px;
 	font-weight: bold;
 }
 
-.a-register {
-	color: #007bff;
-	padding: 5px;
-	margin-bottom: 15px;
+.labelBrand{
+    font-weight: normal;
+    font-size: 0.8rem;
 }
-.btn-primary {
-	width: 100%;
+#labelBrand{
+    margin-top: 10px;
 }
-
-.alert-div {
-	margin-top: 20px;
-	width: 250px;
-	justify-content: center;
-	text-align: center;
-}
-
-a {
-	color: #000000;
-	text-decoration: none;
-	font-weight: normal;
-}
-
-input {
-	opacity: 1;
-	z-index: 4;
+#nameBtn {
+    color: aqua;
 }

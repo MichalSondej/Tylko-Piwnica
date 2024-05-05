@@ -1,15 +1,22 @@
 <?php
 include 'db.php';
+session_start();
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    // $_SESSION['username'] = $username;
+    $_SESSION['username'] = $username;
 }
 
 $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 $result = mysqli_query($con, $sql);
 
+foreach ($result as $row) {
+    if ($row['username'] == $username && $row['password'] == $password) {
+        header('Location: index.php');
+    } 
+}
 
 var_dump($result);
 
@@ -44,7 +51,7 @@ var_dump($result);
 
 
         <div class="a-register">
-            <a href="index.php">Nie masz jeszcze konta? Zarejestruj się</a>
+            <a href="register.php">Nie masz jeszcze konta? Zarejestruj się</a>
         </div>
         <button type="submit" class="btn btn-primary">Zaloguj się</button>
 
