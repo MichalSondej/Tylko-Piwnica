@@ -61,7 +61,7 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
         </nav>
     </header>
     <div class="contaier-lg">
-        <form class="container" method="POST" >
+        <form class="container" method="POST">
             <div class="mb-3">
                 <label for="nameTobacco" class="form-label">Nazwa tytoniu</label>
                 <input type="text" class="form-control" name="nameTobacco">
@@ -69,9 +69,9 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
             <div class="mb-3">
                 <label for="brandTobacco" class="form-label
                 ">Marka tytoniu</label>
-                    <select name="brandSelect" onchange="checkOption(this)" class="form-select" aria-label="Default select example">
-                        <option selected>Wybierz z listy</option>
-                        <option value="newBrand" >Dodaj nową firmę</option>
+                <select name="brandSelect" onchange="checkOption(this)" class="form-select" aria-label="Default select example">
+                    <option selected>Wybierz z listy</option>
+                    <option value="newBrand">Dodaj nową firmę</option>
                     <?php foreach ($con->query($sqlQueryBrandTobacco) as $row) {
                         echo '<option value="' . $row['brand'] . '">' . $row['brand'] . ' </option>';
                     } ?>
@@ -82,24 +82,39 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
             <div class="mb-3">
                 <label for="typeTobacco" class="form-label
                 ">Rodzaj tytoniu</label>
-                <input type="text" class="form-control" name="typeTobacco">
+                <select name="typeTobacco" class="form-select">
+                    <option value="1">Czerwony</option>
+                    <option value="2">Jasny</option>
+                    <option value="3">Ciemny</option>
+                </select>
             </div>
             <div class="mb-3">
-                <label for="flavorTobacco" class="form-label
-                ">Smak tytoniu</label>
-                <input type="text" class="form-control" name="flavorTobacco">
+                <label for="strongTobacco" class="form-label
+                ">Moc tytoniu</label>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" value="1" class="btn-check" name="strongTobacco" id="btnradio1" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="btnradio1">Słaby</label>
+
+                        <input type="radio" value="2" class="btn-check" name="strongTobacco" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio2">Średni</label>
+
+                        <input type="radio" value="3" class="btn-check" name="strongTobacco" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio3">Mocny</label>
+                    </div>
             </div>
-            <div class="mb-3">
-                <label for="priceTobacco" class="form-label
+            <label for="priceTobacco" class="form-label
                 ">Cena tytoniu</label>
-                <input type="text" class="form-control" name="priceTobacco">
+            <div class="mb-3 form-display">
+                <input type="text" class="form-control leftInput" placeholder="waga (gramy)" name="weightTobacco">
+                <input type="text" class="form-control rightInput" placeholder="cena" name="priceTobacco">
+
             </div>
             <div class="mb-3">
                 <label for="descriptionTobacco" class="form-label
                 ">Opis tytoniu</label>
                 <textarea class="form-control" name="descriptionTobacco" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Dodaj tytoń</button>
+            <button type="submit" class="btn addBtn btn-primary">Dodaj tytoń</button>
     </div>
     </form>
     </div>
@@ -115,7 +130,7 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['nameTobacco']) && isset($_POST['typeTobacco']) && !empty($_POST['flavorTobacco']) && isset($_POST['priceTobacco']) && isset($_POST['descriptionTobacco'])) {
+    if (isset($_POST['nameTobacco']) && isset($_POST['typeTobacco']) && isset($_POST['priceTobacco']) && isset($_POST['descriptionTobacco'])) {
         addNewTobacco();
     } else {
         echo 'Wypełnij wszystkie pola';
@@ -130,14 +145,15 @@ function addNewTobacco()
     if ($_POST['brandTobacco'] == null) {
         $brandTobacco = $_POST['brandSelect'];
     } else {
-    $brandTobacco = $_POST['brandTobacco'];
+        $brandTobacco = $_POST['brandTobacco'];
     }
     $typeTobacco = $_POST['typeTobacco'];
-    $flavorTobacco = $_POST['flavorTobacco'];
+    $strongTobacco = $_POST['strongTobacco'];
+    $weightTobacco = $_POST['weightTobacco'];
     $priceTobacco = $_POST['priceTobacco'];
     $descriptionTobacco = $_POST['descriptionTobacco'];
 
-    $sql = "INSERT INTO tobaccos (name, brand, type, flavor, price, description) VALUES ('$nameTobacco', '$brandTobacco', '$typeTobacco', '$flavorTobacco', '$priceTobacco', '$descriptionTobacco')";
+    $sql = "INSERT INTO tobaccos (name, brand, type, strong, price, weight, description) VALUES ('$nameTobacco', '$brandTobacco', '$typeTobacco', '$strongTobacco', '$priceTobacco', '$weightTobacco', '$descriptionTobacco')";
 
     mysqli_query($con, $sql);
 }

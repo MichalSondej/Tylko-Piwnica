@@ -34,3 +34,18 @@ body::before {
 #nameBtn {
     color: aqua;
 }
+.btn-group{
+	margin-left: 30px;
+}
+.form-display{
+	display: flex;	
+}
+.addBtn{
+	width: 100%;
+}
+.leftInput {
+	margin-right: 3px;
+}
+.rightInput {
+	margin-left: 3px;
+}
