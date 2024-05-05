@@ -14,53 +14,13 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tylko Piwnica</title>
+    <title>Tylko Piwnica - Dodaj tytoń</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/addNewTobacco.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-            <div class="container-fluid">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <div class="btn-group">
-                            <button id="nameBtn" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['username']; ?>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Edytuj profil</a></li>
-                                <li><a class="dropdown-item" href="#">Moje tytonie</a></li>
-
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="logout.php">Wyloguj się</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-dark" href="index.php">Piwnica</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Tytonie
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-dark" href="addNewTobacco.php">Dodaj nowy tytoń</a>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <?php include 'header.php'; ?>
     <div class="contaier-lg">
         <form class="container" method="POST" action="index.php">
             <div class="mb-3">
@@ -92,7 +52,7 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
             <div class="mb-3">
                 <label for="strongTobacco" class="form-label
                 ">Moc tytoniu</label>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <div class="btn-group rateButtons" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" value="1" class="btn-check" name="strongTobacco" id="btnradio1" autocomplete="off" checked>
                     <label class="btn btn-outline-primary" for="btnradio1">Słaby</label>
 
