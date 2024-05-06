@@ -31,3 +31,10 @@ body::before {
 .cards {
 	margin-top: 1rem;
 }
+.card-text {
+	margin: 3px !important;
+}
+h2 {
+	margin-top: 1.5rem;
+	color: aqua;
+}

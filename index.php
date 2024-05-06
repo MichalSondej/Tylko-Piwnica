@@ -4,8 +4,7 @@ session_start();
 if (!$_SESSION['username']) {
     header('Location: login.php');
 }
-
-$sqlQueryNameTobacco = "SELECT DISTINCT * FROM tylko_piwnica.tobaccos;";
+$sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
 
 
 
@@ -27,28 +26,32 @@ $sqlQueryNameTobacco = "SELECT DISTINCT * FROM tylko_piwnica.tobaccos;";
 
 <body>
     <?php include 'header.php'; ?>
+    <?php
+    foreach ($con->query($sqlQueryBrandTobacco) as $row) {
+        
+        $brand = $row['brand'];
+        $sqlQueryNameTobacco = "SELECT  * FROM tylko_piwnica.tobaccos WHERE brand = '$brand';";
 
-    <div class="container">
-        <div class="cards container-sm row row-cols-1 row-cols-md-3 g-4">
-
-            <?php
-            foreach ($con->query($sqlQueryNameTobacco) as $row) {
-                echo '<div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">' . $row['name'] . '</h5>
-                                    <p class="card-text">Marka: ' . $row['brand'] . '</p>
-                                    <p class="card-text">Rodzaj: ' . $row['type'] . '</p>
-                                    <p class="card-text">Moc: ' . $row['strong'] . '</p>
-                                    <p class="card-text">Opis: ' . $row['description'] . '</p>
+        echo '<h2 class="text-center">' . $row['brand'] . '</h2>';
+        echo '<div class="container">
+                <div class="cards container-sm row row-cols-1 row-cols-md-3 g-4">';
+                    foreach ($con->query($sqlQueryNameTobacco) as $row) {
+                        echo '<div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">' . $row['name'] . '</h5>
+                                        <p class="card-text">Marka: ' . $row['brand'] . '</p>
+                                        <p class="card-text">Rodzaj: ' . $row['type'] . '</p>
+                                        <p class="card-text">Moc: ' . $row['strong'] . '</p>
+                                        <p class="card-text">Opis: ' . $row['description'] . '</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>';
-            }
-            ?>
-        </div>
-    </div>
-
+                            </div>';
+                    }
+        echo '</div>
+            </div>';
+    }
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
