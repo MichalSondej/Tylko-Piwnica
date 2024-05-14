@@ -6,8 +6,6 @@ if (!$_SESSION['username']) {
 }
 $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -28,15 +26,15 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
     <?php include 'header.php'; ?>
     <?php
     foreach ($con->query($sqlQueryBrandTobacco) as $row) {
-        
+
         $brand = $row['brand'];
         $sqlQueryNameTobacco = "SELECT  * FROM tylko_piwnica.tobaccos WHERE brand = '$brand';";
-
+        echo '<div class="container-lg">';
         echo '<h2 class="text-center">' . $row['brand'] . '</h2>';
         echo '<div class="container">
                 <div class="cards container-sm row row-cols-1 row-cols-md-3 g-4">';
-                    foreach ($con->query($sqlQueryNameTobacco) as $row) {
-                        echo '<div class="col">
+        foreach ($con->query($sqlQueryNameTobacco) as $row) {
+            echo '<div class="col">
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $row['name'] . '</h5>
@@ -47,8 +45,9 @@ $sqlQueryBrandTobacco = "SELECT DISTINCT brand FROM tylko_piwnica.tobaccos;";
                                     </div>
                                 </div>
                             </div>';
-                    }
+        }
         echo '</div>
+                    </div>
             </div>';
     }
     ?>

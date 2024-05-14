@@ -37,4 +37,12 @@ body::before {
 h2 {
 	margin-top: 1.5rem;
 	color: aqua;
+	margin-bottom: -2.5rem;
+}
+.card {
+	background-color: rgba(40, 40, 40, 0.5);
+	color: white;	
+}
+.text-center{
+	padding: 1rem 0;	
 }
